@@ -1,8 +1,12 @@
+require('dotenv').config();
+
 var express = require('express');
 var app = express();
 var madlibs = require('./madlibs.json');
 
-app.use(express.static('public'));
+app.set('port', (process.env.PORT || 5000));
+
+app.use(express.static(__dirname + '/public'));
 
 app.get('/madlib', function (req, res) {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -12,7 +16,6 @@ app.get('/madlib', function (req, res) {
     res.send(result);
 });
 
-app.listen(3000, function () {
-    console.log("Starting with libs: " + madlibs);
-    console.log('Madlibs listening on port 3000!');
+app.listen(app.get('port'), function () {
+    console.log('Madlibs listening on port ' + app.get('port') + '!');
 });

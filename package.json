@@ -4,11 +4,12 @@
   "description": "Return an empty mad-lib.",
   "main": "index.js",
   "dependencies": {
+    "dotenv": "^2.0.0",
     "express": "^4.14.0"
   },
   "devDependencies": {},
-  "start": "node app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
